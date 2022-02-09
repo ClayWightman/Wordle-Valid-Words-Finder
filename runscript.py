@@ -39,7 +39,7 @@ def get_words():
     with open('five_letter_words.json') as f:
         data = json.load(f)
         for word in data:
-            if word[0] == 'a':
+            if word[0] == 'b':
                 words.append(word)
     print(len(words))
     return words
@@ -76,7 +76,6 @@ def runscript():
             print(word + " is not a valid word")
     write_valid_words_to_csv(valid_words)
     print("--- %s seconds ---" %(time.time() - start_time))
-
 
 
 runscript()
