@@ -39,8 +39,8 @@ def get_words():
     with open('five_letter_words.json') as f:
         data = json.load(f)
         for word in data:
-            if word[0] == 'a':
-                words.append(word)
+            #if word[0] == 'a':
+            words.append(word)
     print(len(words))
     return words
 
@@ -54,7 +54,7 @@ def write_valid_words_to_csv(valid_words):
 def runscript():
     start_time = time.time()
     valid_words = []
-    driver = webdriver.Chrome() #Will need to download chromedriver and put it in your PATH.   Download here: https://sites.google.com/chromium.org/driver/
+    driver = webdriver.Chrome()
     driver.get("https://www.powerlanguage.co.uk/wordle/")
     driver.maximize_window() #fullscreen (just looks nicer)
     close_modal(driver)
