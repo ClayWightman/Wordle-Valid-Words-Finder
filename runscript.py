@@ -39,8 +39,8 @@ def get_words():
     with open('five_letter_words.json') as f:
         data = json.load(f)
         for word in data:
-            #if word[0] == 'a':
-            words.append(word)
+            if word[0] == 'a':
+                words.append(word)
     print(len(words))
     return words
 
