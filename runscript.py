@@ -39,10 +39,10 @@ def get_words():
     with open('five_letter_words.json') as f:
         data = json.load(f)
         for word in data:
-            if word[0] == 'c':
+            if word[0] == 'efgh':
                 words.append(word)
     print("estimated time to complete is " + str(datetime.timedelta(seconds=(len(words)* 2.2))))
-    return words[:10]
+    return words
 
 
 def write_valid_words_to_csv(valid_words):
