@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
-import json, time, csv
+import datetime, json, time, csv
 
 
 #An annoying workaround to the "Shadow Root" DOM element on Wordle.  This is why all selections are done using the "By" class with CSS_SELECTOR
@@ -39,10 +39,10 @@ def get_words():
     with open('five_letter_words.json') as f:
         data = json.load(f)
         for word in data:
-            if word[0] == 'b':
+            if word[0] == 'c':
                 words.append(word)
-    print(len(words))
-    return words
+    print("estimated time to complete is " + str(datetime.timedelta(seconds=(len(words)* 2.2))))
+    return words[:10]
 
 
 def write_valid_words_to_csv(valid_words):
@@ -75,7 +75,7 @@ def runscript():
         else:
             print(word + " is not a valid word")
     write_valid_words_to_csv(valid_words)
-    print("--- %s seconds ---" %(time.time() - start_time))
+    print("Actual time to complete was " + str(datetime.timedelta(seconds = (time.time() - start_time))))
 
 
 runscript()
