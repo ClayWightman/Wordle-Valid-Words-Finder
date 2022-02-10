@@ -39,7 +39,7 @@ def get_words():
     with open('five_letter_words.json') as f:
         data = json.load(f)
         for word in data:
-            if word[0] == 'efgh':
+            if word[0] == 'e' or word[0] == 'f' or word[0] == 'g' or word[0] == 'h':
                 words.append(word)
     print("estimated time to complete is " + str(datetime.timedelta(seconds=(len(words)* 2.2))))
     return words
